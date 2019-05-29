@@ -1,0 +1,27 @@
+language: ruby
+rvm:
+  - 2.4.1
+
+script: ./script/cibuild
+
+# Only do this for master
+branches:
+  only:
+  - master
+
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+
+addons:
+  apt:
+    packages:
+    - libcurl4-openssl-dev
+
+sudo: false # route build to the container-based infrastructure for a faster build
+
+cache: bundler # caching bundler gem packages will speed up build
+
+# Disable email notifications about the outcome of your builds
+notifications:
+  email: false
