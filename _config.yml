@@ -48,7 +48,6 @@ plugins:
 collections:
   authors:
     output: true
-    permalink: /:collection/:name
 
 # Default front matter
 defaults:
